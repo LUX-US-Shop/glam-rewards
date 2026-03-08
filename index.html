@@ -244,7 +244,7 @@
 
   <!-- LEFT: Bath & Body Works -->
   <a href="https://afflat3c2.com/trk/lnk/80DBA135-99F1-423A-BFAD-362D7DE2F22F/?o=23672&c=918277&a=785920&k=67B0F7FC32AE8EFC4FD1E819C47EBE5E&l=24661&s1=pinterest&s2=acc1"
-     class="half left" id="leftHalf" onclick="trackClick('vanna-sephora','BathBodyWorks_250','acc1','23672')">
+     class="half left" id="leftHalf" onclick="trackClick('glam-rewards','BathBodyWorks_250','acc1','23672')">
     <img class="bg" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
 IFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAA
 AADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlk
@@ -3359,7 +3359,7 @@ JIRYrYnqZIHKkmgRQ8lC3HJ5ViSATi0Qkl94rCNHZrOEtHyVoaNm4gUrkZZXT//Z" alt="Bath Body
 
   <!-- RIGHT: Sephora -->
   <a href="https://afflat3c2.com/trk/lnk/80DBA135-99F1-423A-BFAD-362D7DE2F22F/?o=25408&c=918277&a=785920&k=5CBFF1D0E031B44EDD88D710F2E25BBF&l=26617&s1=pinterest&s2=acc8"
-     class="half right" id="rightHalf" onclick="trackClick('vanna-sephora','Sephora_500','acc8','25408')">
+     class="half right" id="rightHalf" onclick="trackClick('glam-rewards','Sephora_500','acc8','25408')">
     <img class="bg" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdC
 IFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAA
 AADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlk
@@ -7713,6 +7713,31 @@ function trackClick(landing, offer, acc, offerId) {
   } catch(e) {}
 }
 // ===== END ANALYTICS =====
+</script>
+
+<script>
+var GS_URL = 'https://script.google.com/macros/s/AKfycbxUBpyJjbuJYRhAku1ixTIVLxOSaML-uZmlYDdnECRDQRYGTbXFWQ_K3UC26n-Wjca-/exec';
+function trackClick(landing, offer, acc, offerId) {
+  try {
+    var device = /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+    var ref = document.referrer || '';
+    fetch(GS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        landing: landing,
+        offer: offer,
+        acc: acc,
+        offer_id: offerId,
+        utm_source: 'pinterest',
+        device: device,
+        ref: ref,
+        ts: new Date().toISOString()
+      })
+    });
+  } catch(e) {}
+}
 </script>
 </body>
 </html>
